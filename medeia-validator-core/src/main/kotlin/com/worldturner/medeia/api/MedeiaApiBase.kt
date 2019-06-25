@@ -93,9 +93,12 @@ abstract class MedeiaApiBase {
      * Loads meta schema validator or cached version if already there.
      */
     private fun loadMetaSchemaValidator(version: JsonSchemaVersion): SchemaValidator {
-        return metaSchemaValidators.computeIfAbsent(version) {
-            loadSchemas(listOf(MetaSchemaSource.forVersion(version)), ValidationOptions(validateSchema = false))
+        if (metaSchemaValidators[version] == null) {
+            metaSchemaValidators[version] = loadSchemas(
+                    listOf(MetaSchemaSource.forVersion(version)), ValidationOptions(validateSchema = false)
+            )
         }
+        return metaSchemaValidators[version]!!
     }
 
     private fun buildValidators(
