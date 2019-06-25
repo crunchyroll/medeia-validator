@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
     <parent>
@@ -8,7 +9,16 @@
         <version>1.1.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.worldturner.medeia</groupId>
+    <properties>
+        <kotlin.compiler.jvmTarget>1.7</kotlin.compiler.jvmTarget>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+        <plugin.animal-sniffer-maven-plugin>1.15</plugin.animal-sniffer-maven-plugin>
+        <plugin.animal-sniffer-maven-plugin.signature.groupId>org.codehaus.mojo.signature</plugin.animal-sniffer-maven-plugin.signature.groupId>
+        <plugin.animal-sniffer-maven-plugin.signature.artifactId>java16</plugin.animal-sniffer-maven-plugin.signature.artifactId>
+        <plugin.animal-sniffer-maven-plugin.signature.version>1.0</plugin.animal-sniffer-maven-plugin.signature.version>
+    </properties>
+
     <artifactId>medeia-validator-gson</artifactId>
     <packaging>jar</packaging>
     <name>Medeia Validator Gson</name>
@@ -21,8 +31,8 @@
         <connection>scm:git:git://github.comworldturner/medeia-validator.git</connection>
         <developerConnection>scm:git:ssh://github.com:worldturner/medeia-validator.git</developerConnection>
         <url>https://github.com/worldturner/medeia-validator.git</url>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
 
     <dependencies>
         <dependency>
@@ -58,6 +68,9 @@
             <plugin>
                 <groupId>org.jetbrains.kotlin</groupId>
                 <artifactId>kotlin-maven-plugin</artifactId>
+                <configuration>
+                    <jvmTarget>1.7</jvmTarget>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>com.github.z3d1k</groupId>
@@ -66,6 +79,29 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>animal-sniffer-maven-plugin</artifactId>
+                <version>${plugin.animal-sniffer-maven-plugin}</version>
+
+                <configuration>
+                    <signature>
+                        <groupId>${plugin.animal-sniffer-maven-plugin.signature.groupId}</groupId>
+                        <artifactId>${plugin.animal-sniffer-maven-plugin.signature.artifactId}</artifactId>
+                        <version>${plugin.animal-sniffer-maven-plugin.signature.version}</version>
+                    </signature>
+                </configuration>
+
+                <executions>
+                    <execution>
+                        <id>animal-sniffer</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
