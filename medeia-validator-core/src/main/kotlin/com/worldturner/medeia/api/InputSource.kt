@@ -4,8 +4,9 @@ import java.io.InputStream
 import java.io.InputStreamReader
 import java.io.Reader
 import java.io.StringReader
+import java.io.FileInputStream
+import java.io.File
 import java.net.URL
-import java.nio.file.Files
 import java.nio.file.Path
 
 enum class InputPreference { STREAM, READER }
@@ -58,7 +59,7 @@ class PathInputSource(
     override val preference: InputPreference
         get() = InputPreference.STREAM
     override val stream: InputStream
-        get() = Files.newInputStream(path)
+        get() = FileInputStream(File(path.toString()))
     override val name: String = path.toString()
 
     override fun toString(): String = "PathInputSource($path)"
