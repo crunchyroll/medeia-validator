@@ -5,9 +5,10 @@ import com.worldturner.medeia.format.IdnProperty.DISALLOWED
 import com.worldturner.medeia.format.IdnProperty.PVALID
 import com.worldturner.medeia.format.i18n.Punycode
 import com.worldturner.util.toCodePoints
-import java.lang.Character.UnicodeBlock.ANCIENT_GREEK_MUSICAL_NOTATION
 import java.lang.Character.UnicodeBlock.COMBINING_MARKS_FOR_SYMBOLS
 import java.lang.Character.UnicodeBlock.MUSICAL_SYMBOLS
+
+private val ANCIENT_GREEK_MUSICAL_NOTATION = Character.UnicodeBlock.forName("ANCIENT_GREEK_MUSICAL_NOTATION")
 
 fun String.isIdnHostname() =
     try {
