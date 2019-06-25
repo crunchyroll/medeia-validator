@@ -69,9 +69,9 @@ class GsonJsonReaderDecorator(
         if (token == JsonToken.NUMBER) {
             val numberAsString = super.nextString()
             return if (numberAsString.contains('.'))
-                BigDecimal(numberAsString).also { consume(JsonTokenData(VALUE_NUMBER, decimal = it)) }.intValueExact()
+                BigDecimal(numberAsString).also { consume(JsonTokenData(VALUE_NUMBER, decimal = it)) }.exactIntValue()
             else
-                BigInteger(numberAsString).also { consume(JsonTokenData(VALUE_NUMBER, integer = it)) }.intValueExact()
+                BigInteger(numberAsString).also { consume(JsonTokenData(VALUE_NUMBER, integer = it)) }.exactIntValue()
         }
         return nextInt()
     }
@@ -83,7 +83,7 @@ class GsonJsonReaderDecorator(
             return if (numberAsString.contains('.'))
                 BigDecimal(numberAsString).also { consume(JsonTokenData(VALUE_NUMBER, decimal = it)) }.longValueExact()
             else
-                BigInteger(numberAsString).also { consume(JsonTokenData(VALUE_NUMBER, integer = it)) }.longValueExact()
+                BigInteger(numberAsString).also { consume(JsonTokenData(VALUE_NUMBER, integer = it)) }.longExactValue()
         }
         return nextLong()
     }
@@ -181,4 +181,29 @@ class GsonJsonReaderDecorator(
             }
         } while (true)
     }
+}
+
+private fun BigDecimal.exactIntValue(): Int {
+    val num: Long = this.longValueExact()
+    // will check decimal part
+    if (num.toInt().toLong() != num) {
+        throw java.lang.ArithmeticException("Overflow")
+    }
+    return num.toInt()
+}
+
+private fun BigInteger.exactIntValue(): Int {
+    val num = toInt()
+    return if (this == BigInteger(num.toString()))
+        num
+    else
+        throw ArithmeticException("BigInteger out of int range")
+}
+
+private fun BigInteger.longExactValue(): Long {
+    val num = toLong()
+    return if (this == BigInteger(num.toString()))
+        num
+    else
+        throw ArithmeticException("BigInteger out of int range")
 }
