@@ -12,10 +12,10 @@ import com.worldturner.medeia.parser.JsonTokenType.VALUE_TEXT
 import com.worldturner.medeia.pointer.JsonPointer
 import com.worldturner.medeia.pointer.RelativeJsonPointer
 import com.worldturner.medeia.schema.validation.stream.SchemaValidatorInstance
+import org.threeten.bp.LocalDate
+import org.threeten.bp.OffsetDateTime
+import org.threeten.bp.OffsetTime
 import java.net.URI
-import java.time.LocalDate
-import java.time.OffsetDateTime
-import java.time.OffsetTime
 import java.time.format.DateTimeParseException
 import java.util.regex.PatternSyntaxException
 

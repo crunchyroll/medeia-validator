@@ -58,6 +58,11 @@
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.threeten</groupId>
+            <artifactId>threetenbp</artifactId>
+            <version>1.4.0</version>
+        </dependency>
     </dependencies>
 
     <build>
