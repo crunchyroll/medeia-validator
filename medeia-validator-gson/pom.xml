@@ -13,7 +13,7 @@
         <kotlin.compiler.jvmTarget>1.7</kotlin.compiler.jvmTarget>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
-        <plugin.animal-sniffer-maven-plugin>1.15</plugin.animal-sniffer-maven-plugin>
+        <plugin.animal-sniffer-maven-plugin>1.18</plugin.animal-sniffer-maven-plugin>
         <plugin.animal-sniffer-maven-plugin.signature.groupId>org.codehaus.mojo.signature</plugin.animal-sniffer-maven-plugin.signature.groupId>
         <plugin.animal-sniffer-maven-plugin.signature.artifactId>java16</plugin.animal-sniffer-maven-plugin.signature.artifactId>
         <plugin.animal-sniffer-maven-plugin.signature.version>1.0</plugin.animal-sniffer-maven-plugin.signature.version>

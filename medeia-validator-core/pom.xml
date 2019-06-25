@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
     <parent>
@@ -13,11 +12,9 @@
         <kotlin.compiler.jvmTarget>1.7</kotlin.compiler.jvmTarget>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
-        <plugin.animal-sniffer-maven-plugin>1.15</plugin.animal-sniffer-maven-plugin>
-        <plugin.animal-sniffer-maven-plugin.signature.groupId>org.codehaus.mojo.signature
-        </plugin.animal-sniffer-maven-plugin.signature.groupId>
-        <plugin.animal-sniffer-maven-plugin.signature.artifactId>java16
-        </plugin.animal-sniffer-maven-plugin.signature.artifactId>
+        <plugin.animal-sniffer-maven-plugin>1.18</plugin.animal-sniffer-maven-plugin>
+        <plugin.animal-sniffer-maven-plugin.signature.groupId>org.codehaus.mojo.signature</plugin.animal-sniffer-maven-plugin.signature.groupId>
+        <plugin.animal-sniffer-maven-plugin.signature.artifactId>java16</plugin.animal-sniffer-maven-plugin.signature.artifactId>
         <plugin.animal-sniffer-maven-plugin.signature.version>1.0</plugin.animal-sniffer-maven-plugin.signature.version>
     </properties>
 
@@ -66,7 +63,7 @@
         <dependency>
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
-            <version>20041127.091804</version>
+            <version>1.12</version>
         </dependency>
     </dependencies>
 

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
 
@@ -48,10 +47,6 @@
         <gson.version>2.8.5</gson.version>
         <jackson.version>2.9.8</jackson.version>
         <hamcrest.version>2.1</hamcrest.version>
-        <plugin.animal-sniffer-maven-plugin>1.15</plugin.animal-sniffer-maven-plugin>
-        <plugin.animal-sniffer-maven-plugin.signature.groupId>org.codehaus.mojo.signature</plugin.animal-sniffer-maven-plugin.signature.groupId>
-        <plugin.animal-sniffer-maven-plugin.signature.artifactId>java17</plugin.animal-sniffer-maven-plugin.signature.artifactId>
-        <plugin.animal-sniffer-maven-plugin.signature.version>1.0</plugin.animal-sniffer-maven-plugin.signature.version>
     </properties>
 
     <dependencyManagement>
@@ -201,30 +196,6 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.1</version>
                 </plugin>
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>animal-sniffer-maven-plugin</artifactId>
-                    <version>${plugin.animal-sniffer-maven-plugin}</version>
-
-                    <configuration>
-                        <signature>
-                            <groupId>${plugin.animal-sniffer-maven-plugin.signature.groupId}</groupId>
-                            <artifactId>${plugin.animal-sniffer-maven-plugin.signature.artifactId}</artifactId>
-                            <version>${plugin.animal-sniffer-maven-plugin.signature.version}</version>
-                        </signature>
-                    </configuration>
-
-<!--                    <executions>-->
-<!--                        <execution>-->
-<!--                            <id>animal-sniffer</id>-->
-<!--                            <phase>compile</phase>-->
-<!--                            <goals>-->
-<!--                                <goal>check</goal>-->
-<!--                            </goals>-->
-<!--                        </execution>-->
-<!--                    </executions>-->
-
-                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
@@ -304,10 +275,6 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>animal-sniffer-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
