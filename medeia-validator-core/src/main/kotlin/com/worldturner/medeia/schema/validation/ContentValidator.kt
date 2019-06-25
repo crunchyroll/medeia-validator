@@ -10,8 +10,8 @@ import com.worldturner.medeia.parser.JsonTokenType.VALUE_TEXT
 import com.worldturner.medeia.schema.validation.stream.SchemaValidatorInstance
 import com.worldturner.util.JsonParseException
 import com.worldturner.util.JsonValidator
+import org.apache.commons.codec.binary.Base64
 import java.net.URI
-import java.util.Base64
 import java.util.Locale
 
 class DecodingResult(
@@ -54,7 +54,12 @@ class ContentValidator(
         when (contentEncoding) {
             "base64" -> {
                 try {
-                    Base64.getDecoder().decode(string).let { DecodingResult(array = it) }
+                    val stringByteArray = string.toByteArray()
+                    if (Base64.isArrayByteBase64(stringByteArray)) {
+                        DecodingResult(array = Base64.decodeBase64(stringByteArray))
+                    } else {
+                        throw IllegalArgumentException()
+                    }
                 } catch (e: IllegalArgumentException) {
                     DecodingResult(
                         failure = FailedValidationResult(

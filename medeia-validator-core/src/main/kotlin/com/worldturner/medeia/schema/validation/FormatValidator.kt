@@ -15,8 +15,8 @@ import com.worldturner.medeia.schema.validation.stream.SchemaValidatorInstance
 import org.threeten.bp.LocalDate
 import org.threeten.bp.OffsetDateTime
 import org.threeten.bp.OffsetTime
+import org.threeten.bp.format.DateTimeParseException
 import java.net.URI
-import java.time.format.DateTimeParseException
 import java.util.regex.PatternSyntaxException
 
 class FormatValidator(

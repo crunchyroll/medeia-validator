@@ -69,7 +69,7 @@
                 <groupId>org.jetbrains.kotlin</groupId>
                 <artifactId>kotlin-maven-plugin</artifactId>
                 <configuration>
-                    <jvmTarget>1.7</jvmTarget>
+                    <jvmTarget>1.6</jvmTarget>
                 </configuration>
             </plugin>
             <plugin>
